@@ -21,7 +21,7 @@ public class ActivityCostHandler implements CostHandler {
   @Override
   public void process(TaskObj taskObj) {
     float amount = taskObj.getAmount();
-    System.out.println("ActivityCostHandler:" + amount);
+    System.out.println("MactivityCostHandler:" + amount);
     if (amount <= 0.55) {
       System.out.format("%s消费了:%.2f%n", this.getClass().getName(), amount);
     }

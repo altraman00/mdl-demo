@@ -21,7 +21,7 @@ public class NewUserCostHandler implements CostHandler {
   @Override
   public void process(TaskObj taskObj) {
     float amount = taskObj.getAmount();
-    System.out.println("NewUserCostHandler:" + amount);
+    System.out.println("MnewUserCostHandler:" + amount);
     if (amount <= 0.15) {
       System.out.format("%s消费了:%.2f%n", this.getClass().getName(), amount);
     }

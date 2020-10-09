@@ -31,7 +31,6 @@ public class Chain4Test {
   public void test1() {
     TaskObj taskObj = new TaskObj(0.43f);
     new ListenerHandlerChainExecutor(costHandlerList).process(taskObj);
-
   }
 
 
