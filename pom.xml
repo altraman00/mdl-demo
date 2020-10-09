@@ -20,7 +20,7 @@
 
     <dependencies>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
@@ -34,6 +34,12 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.9</version>
         </dependency>
 
         <dependency>
@@ -73,7 +79,7 @@
             <version>1.9.1</version>
         </dependency>
 
-        <!--  解决 Illegal DefaultValue null for parameter type integer    异常  -->
+        &lt;!&ndash;  解决 Illegal DefaultValue null for parameter type integer    异常  &ndash;&gt;
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
@@ -91,18 +97,18 @@
             <artifactId>slf4j-api</artifactId>
         </dependency>
 
-        <!--数据库文档核心依赖-->
+        &lt;!&ndash;数据库文档核心依赖&ndash;&gt;
         <dependency>
             <groupId>cn.smallbun.screw</groupId>
             <artifactId>screw-core</artifactId>
             <version>1.0.3</version>
         </dependency>
-        <!-- HikariCP -->
+        &lt;!&ndash; HikariCP &ndash;&gt;
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
             <version>3.4.5</version>
-        </dependency>
+        </dependency>-->
 
 
     </dependencies>
