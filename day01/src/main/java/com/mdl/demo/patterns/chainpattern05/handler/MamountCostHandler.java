@@ -1,6 +1,6 @@
 package com.mdl.demo.patterns.chainpattern05.handler;
 
-import com.mdl.demo.patterns.chainpattern05.Handler;
+import com.mdl.demo.patterns.chainpattern05.CostHandler;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,15 +13,15 @@ import org.springframework.stereotype.Component;
  */
 
 @Component("MamountCostHandler")
-public class MamountCostHandler extends Handler {
+public class MamountCostHandler extends CostHandler {
 
   @Override
-  public Handler getNextHandler() {
+  public CostHandler getNextHandler() {
     return null;
   }
 
   @Override
-  public void setNextHandler(Handler nextHandler) {
+  public void setNextHandler(CostHandler nextHandler) {
 
   }
 

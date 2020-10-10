@@ -1,9 +1,8 @@
 package com.mdl.demo.controller;
 
-import com.mdl.demo.patterns.chainpattern03.handler.CostHandler;
 import com.mdl.demo.patterns.chainpattern03.model.Task;
 import com.mdl.demo.patterns.chainpattern05.ExecuteHandler;
-import com.mdl.demo.patterns.chainpattern05.Handler;
+import com.mdl.demo.patterns.chainpattern05.CostHandler;
 import com.mdl.demo.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -33,7 +32,7 @@ public class UserController {
   private UserService userService;
 
   @Autowired
-  private List<CostHandler> filters;
+  private List<com.mdl.demo.patterns.chainpattern03.handler.CostHandler> filters;
 
   @Autowired
   private ExecuteHandler executeHandler;
@@ -49,7 +48,7 @@ public class UserController {
   @GetMapping("/chain")
   public String testChain() {
     Task task = new Task();
-    for (CostHandler filter : filters) {
+    for (com.mdl.demo.patterns.chainpattern03.handler.CostHandler filter : filters) {
       if (!filter.filter(task)) {
         return "error";
       }
@@ -62,7 +61,7 @@ public class UserController {
    */
   @GetMapping("/test/{num}")
   public String testHandler(@PathVariable float num) {
-    Handler handler = executeHandler.getHandler();
+    CostHandler handler = executeHandler.getHandler();
     handler.dealRequest(num);
     return "ok";
   }

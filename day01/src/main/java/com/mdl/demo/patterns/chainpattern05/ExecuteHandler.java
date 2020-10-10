@@ -22,11 +22,11 @@ public class ExecuteHandler {
   @Autowired
   private ApplicationContext context;
 
-  private List<Handler> handlerList = new LinkedList<>();
+  private List<CostHandler> handlerList = new LinkedList<>();
 
-  private Handler handler;
+  private CostHandler handler;
 
-  public Handler getHandler() {
+  public CostHandler getHandler() {
     return handler;
   }
 
@@ -37,15 +37,15 @@ public class ExecuteHandler {
   public void afterPostConstruct() {
     HandlerBeanEnum[] values = HandlerBeanEnum.values();
     for (HandlerBeanEnum value : values) {
-      Handler bean = context.getBean(value.getBeanName(), Handler.class);
+      CostHandler bean = context.getBean(value.getBeanName(), CostHandler.class);
       handlerList.add(bean);
     }
     if (handlerList != null && handlerList.size() > 0) {
       for (int i = 1; i < handlerList.size(); i++) {
         //当前处理器
-        Handler currentHandler = handlerList.get(i - 1);
+        CostHandler currentHandler = handlerList.get(i - 1);
         //下一个处理器
-        Handler nextHandler = handlerList.get(i);
+        CostHandler nextHandler = handlerList.get(i);
         //将处理器串成链表
         currentHandler.setNextHandler(nextHandler);
       }
