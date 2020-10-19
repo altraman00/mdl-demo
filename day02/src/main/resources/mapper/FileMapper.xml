@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.upload.dao.FileMapper">
-  <resultMap id="BaseResultMap" type="com.mdl.day02.model.FileDTO">
+  <resultMap id="BaseResultMap" type="com.mdl.day02.model.ShardFileEntity">
     <!--@mbg.generated-->
-    <!--@Table `fileDTO`-->
+    <!--@Table `shardFileEntity`-->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="path" jdbcType="VARCHAR" property="path" />
     <result column="name" jdbcType="VARCHAR" property="name" />

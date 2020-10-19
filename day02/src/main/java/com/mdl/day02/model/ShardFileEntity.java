@@ -3,6 +3,7 @@ package com.mdl.day02.model;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import java.util.Date;
 import lombok.Data;
 
 /**
@@ -15,8 +16,8 @@ import lombok.Data;
  */
 
 @Data
-@TableName(value = "file")
-public class FileDTO {
+@TableName(value = "shard_file")
+public class ShardFileEntity {
 
   /**
    * id
@@ -44,17 +45,6 @@ public class FileDTO {
    */
   private Integer size;
 
-
-  /**
-   * 创建时间
-   */
-  private Long createdAt;
-
-  /**
-   * 修改时间
-   */
-  private Long updatedAt;
-
   /**
    * 已上传分片
    */
@@ -74,5 +64,15 @@ public class FileDTO {
    * 文件标识
    */
   private String fileKey;
+
+  /**
+   * 创建时间
+   */
+  private Date createdAt;
+
+  /**
+   * 修改时间
+   */
+  private Date updatedAt;
 
 }

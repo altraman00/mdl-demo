@@ -1,7 +1,7 @@
 package com.mdl.day02.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.mdl.day02.model.FileDTO;
+import com.mdl.day02.model.ShardFileEntity;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface FileMapper extends BaseMapper<FileDTO> {
+public interface ShardFileMapper extends BaseMapper<ShardFileEntity> {
 
 }

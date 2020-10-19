@@ -1,13 +1,14 @@
 package com.mdl.day02.controller;
 
 import com.mdl.day02.config.Result;
-import com.mdl.day02.model.FileDTO;
-import com.mdl.day02.service.FileService;
+import com.mdl.day02.model.ShardFileEntity;
+import com.mdl.day02.service.ShardFileService;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
@@ -31,14 +32,14 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping("/file")
 @Slf4j
-public class FileController {
+public class ShardFileController {
 
   @Autowired
-  FileService fileService;
+  ShardFileService shardFileService;
 
   public static final String BUSINESS_NAME = "普通分片上传";
 
-  // 设置图片上传路径
+  // 设置文件上传路径
   @Value("${file.basepath}")
   private String basePath;
 
@@ -76,7 +77,7 @@ public class FileController {
     // 获取文件的扩展名
     String ext = FilenameUtils.getExtension(file.getOriginalFilename());
 
-    //设置图片新的名字
+    //设置文件新的名字
     String fileName = new StringBuffer().append(key).append(".").append(suffix).toString(); // course\6sfSqfOwzmik4A4icMYuUe.mp4
     //这个是分片的名字
     String localfileName = new StringBuffer(fileName)
@@ -84,26 +85,28 @@ public class FileController {
         .append(shardIndex)
         .toString(); // course\6sfSqfOwzmik4A4icMYuUe.mp4.1
 
-    // 以绝对路径保存重名命后的图片
+    // 以绝对路径保存重名命后的文件
     File targeFile=new File(basePath,localfileName);
-    //上传这个图片
+    //上传这个文件
     file.transferTo(targeFile);
     //数据库持久化这个数据
-    FileDTO file1=new FileDTO();
+    ShardFileEntity file1=new ShardFileEntity();
     file1.setPath(basePath+localfileName);
     file1.setSuffix(suffix);
     file1.setName(name);
     file1.setSuffix(ext);
     file1.setSize(size);
-    file1.setCreatedAt(System.currentTimeMillis());
-    file1.setUpdatedAt(System.currentTimeMillis());
+    file1.setCreatedAt(new Date());
+    file1.setUpdatedAt(new Date());
+//    file1.setCreatedAt(System.currentTimeMillis());
+//    file1.setUpdatedAt(System.currentTimeMillis());
     file1.setShardIndex(shardIndex);
     file1.setShardSize(shardSize);
     file1.setShardTotal(shardTotal);
     file1.setFileKey(key);
     //插入到数据库中
     //保存的时候 去处理一下 这个逻辑
-    fileService.save(file1);
+    shardFileService.save(file1);
     //判断当前是不是最后一个分页 如果不是就继续等待其他分页  合并分页
     if(shardIndex .equals(shardTotal) ){
       file1.setPath(basePath+fileName);
@@ -115,7 +118,7 @@ public class FileController {
   @RequestMapping("/check")
   @ResponseBody
   public Result check(String key){
-    List<FileDTO> check = fileService.check(key);
+    List<ShardFileEntity> check = shardFileService.check(key);
     //如果这个key存在的话 那么就获取上一个分片去继续上传
     if(check.size()!=0){
       return Result.ok("查询成功",check.get(0));
@@ -128,13 +131,13 @@ public class FileController {
    * @author fengxinglie
    * 合并分页
    */
-  private void merge(FileDTO fileDTO) throws FileNotFoundException, InterruptedException {
+  private void merge(ShardFileEntity shardFileEntity) throws FileNotFoundException, InterruptedException {
     //合并分片开始
     log.info("分片合并开始");
-    String path = fileDTO.getPath(); //获取到的路径 没有.1 .2 这样的东西
+    String path = shardFileEntity.getPath(); //获取到的路径 没有.1 .2 这样的东西
     //截取视频所在的路径
     path = path.replace(basePath,"");
-    Integer shardTotal= fileDTO.getShardTotal();
+    Integer shardTotal= shardFileEntity.getShardTotal();
     File newFile = new File(basePath + path);
     FileOutputStream outputStream = new FileOutputStream(newFile,true); // 文件追加写入
     FileInputStream fileInputStream = null; //分片文件
