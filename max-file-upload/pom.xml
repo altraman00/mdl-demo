@@ -10,9 +10,9 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.mdl</groupId>
-  <artifactId>day02</artifactId>
+  <artifactId>max-file-upload</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>day02</name>
+  <name>max-file-upload</name>
   <description>Demo project for Spring Boot</description>
 
   <properties>
