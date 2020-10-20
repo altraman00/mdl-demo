@@ -14,5 +14,4 @@ public class MaxFileUploadApplication {
     SpringApplication.run(MaxFileUploadApplication.class, args);
   }
 
-
 }

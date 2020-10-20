@@ -30,7 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
  */
 
 @Controller
-@RequestMapping("/file")
+@RequestMapping("/shard_file")
 @Slf4j
 public class ShardFileController {
 
@@ -42,11 +42,6 @@ public class ShardFileController {
   // 设置文件上传路径
   @Value("${file.basepath}")
   private String basePath;
-
-  @RequestMapping("/show")
-  public String show(){
-    return "file";
-  }
 
   /**
    * 上传

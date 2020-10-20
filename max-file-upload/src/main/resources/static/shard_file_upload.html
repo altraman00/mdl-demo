@@ -5,8 +5,8 @@
     <title>Title</title>
 </head>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript" src="/md5.js"></script>
-<script type="text/javascript" src="/tool.js"></script>
+<script type="text/javascript" src="/js/md5.js"></script>
+<script type="text/javascript" src="/js/tool.js"></script>
 <script type="text/javascript">
    //上传文件的话  得 单独出来
    function test1(shardIndex) {
@@ -22,18 +22,18 @@
        //定义分片的起始位置
        var start = (shardIndex-1) * shardSize;
        //定义分片结束的位置  file哪里来的?
-       var end = Math.min(file.size,start + shardSize);
+       var end = Math.min(shard_file.size,start + shardSize);
        //从文件中截取当前的分片数据
-       var fileShard = file.slice(start,end);
+       var fileShard = shard_file.slice(start,end);
        //分片的大小
-       var size = file.size;
+       var size = shard_file.size;
        //总片数
        var shardTotal = Math.ceil(size / shardSize);
        //文件的后缀名
-       var fileName = file.name;
+       var fileName = shard_file.name;
        var suffix = fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length).toLowerCase();
        //把视频的信息存储为一个字符串
-       var filedetails=file.name+file.size+file.type+file.lastModifiedDate;
+       var filedetails=shard_file.name+shard_file.size+shard_file.type+shard_file.lastModifiedDate;
        //使用当前文件的信息用md5加密生成一个key 这个加密是根据文件的信息来加密的  如果相同的文件 加的密还是一样的
        var key = hex_md5(filedetails);
        var key10 = parseInt(key,16);
@@ -48,7 +48,7 @@
        fd.append('size',size);
        fd.append("key",key62)
        $.ajax({
-           url:"/file/upload",
+           url:"/shard_file/upload",
            type:"post",
            cache: false,
            data:fd,
@@ -76,7 +76,7 @@
    function check() {
        var file=$('#inputfile').get(0).files[0];
        //把视频的信息存储为一个字符串
-       var filedetails=file.name+file.size+file.type+file.lastModifiedDate;
+       var filedetails=shard_file.name+shard_file.size+shard_file.type+shard_file.lastModifiedDate;
        //使用当前文件的信息用md5加密生成一个key 这个加密是根据文件的信息来加密的  如果相同的文件 加的密还是一样的
        var key = hex_md5(filedetails);
        var key10 = parseInt(key,16);
@@ -84,7 +84,7 @@
        var key62 = Tool._10to62(key10);
        //检查这个key存在不存在
        $.ajax({
-           url:"/file/check",
+           url:"/shard_file/check",
            type:"post",
            data:{'key':key62},
            success:function (data) {
