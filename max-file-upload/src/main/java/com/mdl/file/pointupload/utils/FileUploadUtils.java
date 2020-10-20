@@ -61,6 +61,8 @@ public class FileUploadUtils {
     //释放
     accessTmpFile.close();
     boolean isOk = checkAndSetUploadProgress(param, tempDirPath);
+
+    //todo 上面判断是否已经上传完成，然后将下面文件重命名的逻辑有问题，文件其实还未全部上传完就已经被重命名了
     if (isOk) {
       boolean flag = renameFile(tempFile, fileName);
       System.out.println("upload complete " + flag + "name=" + fileName);
@@ -70,11 +72,16 @@ public class FileUploadUtils {
 
   public void uploadFileByMappedByteBuffer(MultipartFileParam param) throws IOException {
     //得到文件名字
-    String fileName = param.getName();
+    String fileAllName = param.getName();
+    //名字
+    String fileName = fileAllName.split("\\.")[0];
+    //后缀
+    String suffix = fileAllName.split("\\.")[1];
+
     //得到上传目录  真实路径+md5
     String uploadDirPath = finalDirPath + param.getMd5();
     //临时文件名字 123_tmp
-    String tempFileName = fileName + "_tmp";
+    String tempFileName = fileName + "_tmp" + "." + suffix;
     File tempDir = new File(uploadDirPath);
     File tempFile = new File(uploadDirPath, tempFileName);
     //判断路径是否存在 不存在 则创建
@@ -84,8 +91,8 @@ public class FileUploadUtils {
 
     RandomAccessFile tempRaf = new RandomAccessFile(tempFile, "rw");
     FileChannel fileChannel = tempRaf.getChannel();
-    //写入该分片数据
 
+    //写入该分片数据
     long offset = CHUNK_SIZE * param.getChunk();
     byte[] fileData = param.getFile().getBytes();
     //直接子节缓冲
@@ -96,9 +103,11 @@ public class FileUploadUtils {
     FileMD5Util.freedMappedByteBuffer(mappedByteBuffer);
     fileChannel.close();
     boolean isOk = checkAndSetUploadProgress(param, uploadDirPath);
+
+    //todo 上面判断是否已经上传完成，然后将下面文件重命名的逻辑有问题，文件其实还未全部上传完就已经被重命名了
     if (isOk) {
-      boolean flag = renameFile(tempFile, fileName);
-      System.out.println("upload complete " + flag + "name=" + fileName);
+      boolean flag = renameFile(tempFile, fileAllName);
+      System.out.println("upload complete " + flag + "name=" + fileAllName);
     }
   }
 
@@ -134,23 +143,21 @@ public class FileUploadUtils {
     byte[] completeList = FileUtils.readFileToByteArray(confFile);
     byte isComplete = Byte.MAX_VALUE;
     for (int i = 0; i < completeList.length; i++) {
-      //与运算, 如果有部分没有完成则 isComplete 不是 Byte.MAX_VALUE
+      //与运算, 如果有部分没有完成,则 isComplete 不是 Byte.MAX_VALUE
       isComplete = (byte) (isComplete & completeList[i]);
       System.out.println("check part " + i + " complete?:" + completeList[i]);
     }
     accessConfFile.close();
     if (isComplete == Byte.MAX_VALUE) {
       stringRedisTemplate.opsForHash().put(Constants.FILE_UPLOAD_STATUS, param.getMd5(), "true");
-      stringRedisTemplate.opsForValue()
-          .set(Constants.FILE_MD5_KEY + param.getMd5(), uploadDirPath + "/" + fileName);
+      stringRedisTemplate.opsForValue().set(Constants.FILE_MD5_KEY + param.getMd5(), uploadDirPath + "/" + fileName);
       return true;
     } else {
       if (!stringRedisTemplate.opsForHash().hasKey(Constants.FILE_UPLOAD_STATUS, param.getMd5())) {
         stringRedisTemplate.opsForHash().put(Constants.FILE_UPLOAD_STATUS, param.getMd5(), "false");
       }
       if (stringRedisTemplate.hasKey(Constants.FILE_MD5_KEY + param.getMd5())) {
-        stringRedisTemplate.opsForValue()
-            .set(Constants.FILE_MD5_KEY + param.getMd5(), uploadDirPath + "/" + fileName + ".conf");
+        stringRedisTemplate.opsForValue().set(Constants.FILE_MD5_KEY + param.getMd5(), uploadDirPath + "/" + fileName + ".conf");
       }
       return false;
     }

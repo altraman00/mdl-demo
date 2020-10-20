@@ -46,7 +46,8 @@ public class PointFileUploadController {
   @ResponseBody
   public Object checkFileMd5(String md5) throws IOException {
     //根据md5查询当前文件处理状态
-    Object processingObj = stringRedisTemplate.opsForHash().get(Constants.FILE_UPLOAD_STATUS, md5);
+//    Object processingObj = stringRedisTemplate.opsForHash().get(Constants.FILE_UPLOAD_STATUS, md5);
+    Object processingObj = null;
     //若未查询到对象 则返回错误提示 文件未上传过
     if (processingObj == null) {
       return new ResultVo(ResultStatus.NO_HAVE);
@@ -77,8 +78,11 @@ public class PointFileUploadController {
     boolean multipartContent = ServletFileUpload.isMultipartContent(request);
     if (multipartContent) {
       logger.info("上传文件start");
-      // 方法2 这个更快点
       try {
+//        //方式一 较慢
+//        fileUploadUtils.uploadFileRandomAccessFile(param);
+
+        //方式二 较快
         fileUploadUtils.uploadFileByMappedByteBuffer(param);
       } catch (IOException e) {
         e.printStackTrace();
