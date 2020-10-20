@@ -1,16 +1,16 @@
-package com.mdl.day02.shardupload.service;
+package com.mdl.file.shardupload.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.mdl.day02.shardupload.mapper.ShardFileMapper;
-import com.mdl.day02.shardupload.model.ShardFileEntity;
+import com.mdl.file.shardupload.mapper.ShardFileMapper;
+import com.mdl.file.shardupload.model.ShardFileEntity;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
  * @Project : mdl-demo
- * @Package Name : com.mdl.day02.shardupload.service
+ * @Package Name : com.mdl.file.shardupload.service
  * @Description : TODO
  * @Author : xiekun
  * @Create Date : 2020年10月19日 16:54

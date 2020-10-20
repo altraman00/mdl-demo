@@ -1,10 +1,10 @@
-package com.mdl.day02;
+package com.mdl.file;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Day02ApplicationTests {
+class MaxFileUploadApplicationTests {
 
   @Test
   void contextLoads() {

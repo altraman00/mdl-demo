@@ -1,10 +1,10 @@
-package com.mdl.day02.shardupload.config;
+package com.mdl.file.shardupload.config;
 
 import lombok.Data;
 
 /**
  * @Project : mdl-demo
- * @Package Name : com.mdl.day02.shardupload.config
+ * @Package Name : com.mdl.file.shardupload.config
  * @Description : TODO
  * @Author : xiekun
  * @Create Date : 2020年10月19日 16:55

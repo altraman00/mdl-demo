@@ -1,8 +1,8 @@
-package com.mdl.day02.shardupload.controller;
+package com.mdl.file.shardupload.controller;
 
-import com.mdl.day02.shardupload.config.Result;
-import com.mdl.day02.shardupload.model.ShardFileEntity;
-import com.mdl.day02.shardupload.service.ShardFileService;
+import com.mdl.file.shardupload.config.Result;
+import com.mdl.file.shardupload.model.ShardFileEntity;
+import com.mdl.file.shardupload.service.ShardFileService;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @Project : mdl-demo
- * @Package Name : com.mdl.day02.shardupload.controller
+ * @Package Name : com.mdl.file.shardupload.controller
  * @Description : TODO
  * @Author : xiekun
  * @Create Date : 2020年10月19日 16:56

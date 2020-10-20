@@ -1,4 +1,4 @@
-package com.mdl.day02.shardupload.generator;
+package com.mdl.file.shardupload.generator;
 
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 /**
  * @Project : mdl-demo
- * @Package Name : com.mdl.day02.shardupload.generator
+ * @Package Name : com.mdl.file.shardupload.generator
  * @Description : 执行 main 方法控制台输入模块表名回车自动生成对应项目目录中
  * @Author : xiekun
  * @Create Date : 2020年10月19日 17:03
@@ -27,7 +27,7 @@ public class CodeGenerator {
   /**
    * 模块名字
    **/
-  public final static String moduleName = "day02";
+  public final static String moduleName = "file";
   /**
    * 生成的Java文件的路径
    **/
@@ -39,7 +39,7 @@ public class CodeGenerator {
 
   public final static String projectPath = System.getProperty("user.dir");
 
-  public final static String packageName = "com.mdl.day02";
+  public final static String packageName = "com.mdl.file";
 
   /**
    * 数据库配置
