@@ -1,4 +1,4 @@
-package com.mdl.day02.model;
+package com.mdl.day02.shardupload.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -8,7 +8,7 @@ import lombok.Data;
 
 /**
  * @Project : mdl-demo
- * @Package Name : com.mdl.day02.model
+ * @Package Name : com.mdl.day02.shardupload.model
  * @Description : TODO
  * @Author : xiekun
  * @Create Date : 2020年10月19日 16:53

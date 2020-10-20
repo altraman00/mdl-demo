@@ -1,8 +1,8 @@
-package com.mdl.day02.controller;
+package com.mdl.day02.shardupload.controller;
 
-import com.mdl.day02.config.Result;
-import com.mdl.day02.model.ShardFileEntity;
-import com.mdl.day02.service.ShardFileService;
+import com.mdl.day02.shardupload.config.Result;
+import com.mdl.day02.shardupload.model.ShardFileEntity;
+import com.mdl.day02.shardupload.service.ShardFileService;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @Project : mdl-demo
- * @Package Name : com.mdl.day02.controller
+ * @Package Name : com.mdl.day02.shardupload.controller
  * @Description : TODO
  * @Author : xiekun
  * @Create Date : 2020年10月19日 16:56
@@ -35,7 +35,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class ShardFileController {
 
   @Autowired
-  ShardFileService shardFileService;
+  private ShardFileService shardFileService;
 
   public static final String BUSINESS_NAME = "普通分片上传";
 
@@ -98,8 +98,6 @@ public class ShardFileController {
     file1.setSize(size);
     file1.setCreatedAt(new Date());
     file1.setUpdatedAt(new Date());
-//    file1.setCreatedAt(System.currentTimeMillis());
-//    file1.setUpdatedAt(System.currentTimeMillis());
     file1.setShardIndex(shardIndex);
     file1.setShardSize(shardSize);
     file1.setShardTotal(shardTotal);

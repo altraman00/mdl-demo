@@ -1,4 +1,4 @@
-package com.mdl.day02.generator;
+package com.mdl.day02.shardupload.generator;
 
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 /**
  * @Project : mdl-demo
- * @Package Name : com.mdl.day02.generator
+ * @Package Name : com.mdl.day02.shardupload.generator
  * @Description : 执行 main 方法控制台输入模块表名回车自动生成对应项目目录中
  * @Author : xiekun
  * @Create Date : 2020年10月19日 17:03

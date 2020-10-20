@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@MapperScan("com.mdl.day02.mapper")
+@MapperScan("com.mdl.day02.shardupload.mapper")
 @ComponentScan(basePackages = {"com.mdl.day02.*"})
 public class Day02Application {
 
