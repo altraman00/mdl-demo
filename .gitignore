@@ -38,4 +38,3 @@ build/
 ### VS Code ###
 .vscode/
 /.mvn/
-src/main/java/com/mdl/day02/pointupload/
