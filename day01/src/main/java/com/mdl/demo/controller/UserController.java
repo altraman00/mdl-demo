@@ -6,11 +6,7 @@ import com.mdl.demo.patterns.chainpattern05.ExecuteHandler;
 import com.mdl.demo.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -71,22 +67,55 @@ public class UserController {
   }
 
 
+//  public static void main(String[] args) {
+//    LocalDateTime midnight = LocalDateTime.now().plusDays(1).withHour(0).withMinute(0).withSecond(0).withNano(0);
+//
+//    LocalDateTime midnight2 = LocalDateTime.now().plusDays(1).withHour(0).withMinute(0).withSecond(0).withNano(0);
+//    DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//    String strDate2 = dtf2.format(midnight2);
+//    System.out.println(strDate2);
+//
+//    long millSeconds = ChronoUnit.MILLIS.between(LocalDateTime.now(),midnight);
+//    long seconds = ChronoUnit.SECONDS.between(LocalDateTime.now(), midnight);
+//    System.out.println("当天剩余毫秒3：" + millSeconds);
+//    System.out.println("当天剩余秒3：" + seconds);
+//
+//    long l = TimeUnit.HOURS.toMillis(1);
+//
+//    System.out.println(l);
+//
+//  }
+
+
+  private static String parseProductId(String iosProductId) {
+    int lastPointIndex = iosProductId.lastIndexOf('.');
+    if (lastPointIndex != -1) {
+      String packageName = iosProductId.substring(0, lastPointIndex);
+      String productId = iosProductId.substring(lastPointIndex + 1);
+      System.out.println("productId:" + productId + "---" + "packageName:" + packageName);
+      String packageNameLowerCase = packageName.toLowerCase();
+      if(packageNameLowerCase.contains(IOS_HOME_PACKAGE.toLowerCase())
+          || packageNameLowerCase.contains(IOS_OVERSEAS_PACKAGE.toLowerCase())){
+        return productId;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * IOS国内支付包名验证
+   **/
+  private static final String IOS_HOME_PACKAGE = "com.mobvoi.One";
+  /**
+   * IOS海外支付包名验证
+   **/
+  private static final String IOS_OVERSEAS_PACKAGE = "com.mobvoi.companion.aw";
+
   public static void main(String[] args) {
-    LocalDateTime midnight = LocalDateTime.now().plusDays(1).withHour(0).withMinute(0).withSecond(0).withNano(0);
-
-    LocalDateTime midnight2 = LocalDateTime.now().plusDays(1).withHour(0).withMinute(0).withSecond(0).withNano(0);
-    DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    String strDate2 = dtf2.format(midnight2);
-    System.out.println(strDate2);
-
-    long millSeconds = ChronoUnit.MILLIS.between(LocalDateTime.now(),midnight);
-    long seconds = ChronoUnit.SECONDS.between(LocalDateTime.now(), midnight);
-    System.out.println("当天剩余毫秒3：" + millSeconds);
-    System.out.println("当天剩余秒3：" + seconds);
-
-    long l = TimeUnit.HOURS.toMillis(1);
-
-    System.out.println(l);
+//    String packageaName = "com.mobvoi.One.v2.202001006";
+    String packageaName = "com.mobvoi.companion.aw.202001006";
+    String s = parseProductId(packageaName);
+    System.out.println("productId：" + s);
 
   }
 
