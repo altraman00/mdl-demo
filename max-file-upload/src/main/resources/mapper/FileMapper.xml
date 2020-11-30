@@ -18,7 +18,7 @@
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, `path`, `name`, suffix, `size`, `user`, created_at, updated_at, shard_index, 
+    id, `path`, `name`, suffix, `size`, created_at, updated_at, shard_index,
     shard_size, shard_total, file_key
   </sql>
 </mapper>
