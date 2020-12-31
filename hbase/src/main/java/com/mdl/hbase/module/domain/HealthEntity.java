@@ -23,10 +23,13 @@ public class HealthEntity {
   public final static String FAMILY = "base_info";
 
   public String name;
+
   public int age;
+
   public String sex;
 
   public String address;
+
   public long salary;
 
 

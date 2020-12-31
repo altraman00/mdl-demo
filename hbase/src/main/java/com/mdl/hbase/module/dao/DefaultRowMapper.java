@@ -21,7 +21,6 @@ public class DefaultRowMapper implements RowMapper<Map<String, Object>> {
 
   @Override
   public Map<String, Object> mapRow(Result result, int i){
-
     List<Cell> ceList = result.listCells();
     Map<String, Object> map = new HashMap<>(16);
     if (ceList != null && ceList.size() > 0) {
