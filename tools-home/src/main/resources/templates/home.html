@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>让一切变得有趣</title>
+  <link rel="icon" type="image/png" href="../static/img/t.png"/>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <meta name="description" content="一个程序员的导航网站，主要包含著名的技术博客、技术常用工具、技术公众号、技术社区论坛等。"/>
+  <meta name="keywords" content="技术, 博客, 工具，程序员，导航，技术公号"/>
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<script src="../static/js/jquery-3.5.1.min.js"></script>
+<body>
+
+<h1 th:text="${msg}"></h1>
+
+<ul>
+  <!-- 这一级是一级的分类 -->
+<!--  <li th:each="HomePageList:${HomePageEntity.title}"><a th:text="${HomePageEntity.title}"></a>-->
+  <li>这一级是一级的分类</a>
+    <!-- 这是一级下的二级分类列表 -->
+    <ul>
+      <li th:each="homePage:${HomePageList}">
+        <a th:text="${homePage.title}"></a>
+        <a th:text="${homePage.content}"></a>
+        <a th:text="${homePage.img}"></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+</body>
+</html>

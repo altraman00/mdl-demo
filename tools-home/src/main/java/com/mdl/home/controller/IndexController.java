@@ -1,5 +1,8 @@
 package com.mdl.home.controller;
 
+import com.mdl.home.Entity.HomePageEntity;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +28,19 @@ public class IndexController {
 
   @RequestMapping("/home")
   public String home(Model model) {
+
+    List<HomePageEntity> list = new ArrayList<>();
+
+    HomePageEntity entity1 = new HomePageEntity("我是title1","我是content1","我是img1");
+    HomePageEntity entity2 = new HomePageEntity("我是title1","我是content1","我是img1");
+    HomePageEntity entity3 = new HomePageEntity("我是title1","我是content1","我是img1");
+    list.add(entity1);
+    list.add(entity2);
+    list.add(entity3);
+
     model.addAttribute("msg", "我是第一个页面");
+    model.addAttribute("HomePageList",list);
+
     return "home";
   }
 
