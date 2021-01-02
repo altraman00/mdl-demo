@@ -1,6 +1,8 @@
-package com.mdl.home.Entity;
+package com.mdl.home.entity;
 
 import lombok.Data;
+
+import javax.persistence.Column;
 
 /**
  * @Project : mdl-demo
@@ -12,21 +14,27 @@ import lombok.Data;
  */
 
 @Data
-public class HomePageEntity {
+public class UserToolsCategoryEntity extends BaseEntity{
 
+  @Column(name="title")
   private String title;
 
+  @Column(name="url")
   private String url;
 
+  @Column(name="img")
   private String img;
 
+  @Column(name="version")
   private String content;
 
-  public HomePageEntity(String title, String url, String img,String content) {
+  public UserToolsCategoryEntity(String title, String url, String img, String content) {
     this.title = title;
     this.url = url;
     this.img = img;
     this.content = content;
   }
 
+  public UserToolsCategoryEntity() {
+  }
 }

@@ -1,11 +1,12 @@
 package com.mdl.home.controller;
 
-import com.mdl.home.Entity.HomePageEntity;
-import java.util.ArrayList;
-import java.util.List;
+import com.mdl.home.entity.UserToolsCategorySiteEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Project : home
@@ -28,12 +29,11 @@ public class IndexController {
 
   @RequestMapping("/home")
   public String home(Model model) {
+    List<UserToolsCategorySiteEntity> list = new ArrayList<>();
 
-    List<HomePageEntity> list = new ArrayList<>();
-
-    HomePageEntity entity1 = new HomePageEntity("我是title1","http://tool.oschina.net/","../static/img/logo_small.gif","我是content1");
-    HomePageEntity entity2 = new HomePageEntity("我是title2","http://tool.oschina.net/","../static/img/logo_small.gif","我是content2");
-    HomePageEntity entity3 = new HomePageEntity("我是title3","http://tool.oschina.net/","../static/img/logo_small.gif","我是content3");
+    UserToolsCategorySiteEntity entity1 = new UserToolsCategorySiteEntity("我是title1","http://tool.oschina.net/","../static/img/logo_small.gif","我是content1");
+    UserToolsCategorySiteEntity entity2 = new UserToolsCategorySiteEntity("我是title2","http://tool.oschina.net/","../static/img/logo_small.gif","我是content2");
+    UserToolsCategorySiteEntity entity3 = new UserToolsCategorySiteEntity("我是title3","http://tool.oschina.net/","../static/img/logo_small.gif","我是content3");
     list.add(entity1);
     list.add(entity2);
     list.add(entity3);

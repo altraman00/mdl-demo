@@ -51,10 +51,10 @@
                 </div>
                 <div class="content">
                     <ul class="list clearfix">
-                        <li th:each="homePage:${HomePageList}">
-                            <a target="_blank" th:href="@{${homePage.url}}">
-                                <div class="title"><img th:src="@{${homePage.img}}" alt="" th:text="${homePage.title}"></div>
-                                <div class="desc" th:text="${homePage.content}"></div>
+                        <li th:each="siteItem:${siteList}">
+                            <a target="_blank" th:href="@{${siteItem.url}}">
+                                <div class="title"><img th:src="@{${siteItem.img}}" alt="" th:text="${siteItem.title}"></div>
+                                <div class="desc" th:text="${siteItem.content}"></div>
                             </a>
                         </li>
                     </ul>
@@ -67,10 +67,10 @@
                 </div>
                 <div class="content">
                     <ul class="list clearfix">
-                        <li th:each="homePage:${HomePageList}">
-                            <a target="_blank" th:href="@{${homePage.url}}">
-                                <div class="title"><img th:src="@{${homePage.img}}" alt="" th:text="${homePage.title}"></div>
-                                <div class="desc" th:text="${homePage.content}"></div>
+                        <li th:each="siteItem:${siteList}">
+                            <a target="_blank" th:href="@{${siteItem.url}}">
+                                <div class="title"><img th:src="@{${siteItem.img}}" alt="" th:text="${siteItem.title}"></div>
+                                <div class="desc" th:text="${siteItem.content}"></div>
                             </a>
                         </li>
                     </ul>
@@ -84,10 +84,10 @@
                 </div>
                 <div class="content">
                     <ul class="list clearfix">
-                        <li th:each="homePage:${HomePageList}">
-                            <a target="_blank" th:href="@{${homePage.url}}">
-                                <div class="title"><img th:src="@{${homePage.img}}" alt="" th:text="${homePage.title}"></div>
-                                <div class="desc" th:text="${homePage.content}"></div>
+                        <li th:each="siteItem:${siteList}">
+                            <a target="_blank" th:href="@{${siteItem.url}}">
+                                <div class="title"><img th:src="@{${siteItem.img}}" alt="" th:text="${siteItem.title}"></div>
+                                <div class="desc" th:text="${siteItem.content}"></div>
                             </a>
                         </li>
                     </ul>
@@ -101,10 +101,10 @@
                 </div>
                 <div class="content">
                     <ul class="list clearfix">
-                        <li th:each="homePage:${HomePageList}">
-                            <a target="_blank" th:href="@{${homePage.url}}">
-                                <div class="title"><img th:src="@{${homePage.img}}" alt="" th:text="${homePage.title}"></div>
-                                <div class="desc" th:text="${homePage.content}"></div>
+                        <li th:each="siteItem:${siteList}">
+                            <a target="_blank" th:href="@{${siteItem.url}}">
+                                <div class="title"><img th:src="@{${siteItem.img}}" alt="" th:text="${siteItem.title}"></div>
+                                <div class="desc" th:text="${siteItem.content}"></div>
                             </a>
                         </li>
                     </ul>
@@ -125,14 +125,14 @@
 
 <ul>
     <!-- 这一级是一级的分类 -->
-    <!--  <li th:each="HomePageList:${UserToolsCategoryEntity.title}"><a th:text="${UserToolsCategoryEntity.title}"></a>-->
+    <!--  <li th:each="siteList:${UserToolsCategoryEntity.title}"><a th:text="${UserToolsCategoryEntity.title}"></a>-->
     <li>这一级是一级的分类</a>
         <!-- 这是一级下的二级分类列表 -->
         <ul>
-            <li th:each="homePage:${HomePageList}">
-                <a th:text="${homePage.title}"></a>
-                <a th:text="${homePage.content}"></a>
-                <a th:text="${homePage.img}"></a>
+            <li th:each="siteItem:${siteList}">
+                <a th:text="${siteItem.title}"></a>
+                <a th:text="${siteItem.content}"></a>
+                <a th:text="${siteItem.img}"></a>
             </li>
         </ul>
     </li>
