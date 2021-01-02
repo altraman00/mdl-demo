@@ -16,14 +16,17 @@ public class HomePageEntity {
 
   private String title;
 
-  private String content;
+  private String url;
 
   private String img;
 
-  public HomePageEntity(String title, String content, String img) {
+  private String content;
+
+  public HomePageEntity(String title, String url, String img,String content) {
     this.title = title;
-    this.content = content;
+    this.url = url;
     this.img = img;
+    this.img = content;
   }
 
 }
