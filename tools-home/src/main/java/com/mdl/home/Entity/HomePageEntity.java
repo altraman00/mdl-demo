@@ -26,7 +26,7 @@ public class HomePageEntity {
     this.title = title;
     this.url = url;
     this.img = img;
-    this.img = content;
+    this.content = content;
   }
 
 }

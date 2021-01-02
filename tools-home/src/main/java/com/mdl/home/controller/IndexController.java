@@ -37,6 +37,8 @@ public class IndexController {
     list.add(entity1);
     list.add(entity2);
     list.add(entity3);
+    list.add(entity3);
+    list.add(entity3);
 
     model.addAttribute("msg", "我是第一个页面");
     model.addAttribute("HomePageList",list);
