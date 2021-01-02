@@ -12,7 +12,7 @@
     <groupId>com.mdl</groupId>
     <artifactId>tools-home</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>home</name>
+    <name>tools-home</name>
     <description>home page info</description>
 
     <properties>
