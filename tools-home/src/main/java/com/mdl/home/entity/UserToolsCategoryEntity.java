@@ -1,8 +1,12 @@
 package com.mdl.home.entity;
 
-import lombok.Data;
-
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * @Project : mdl-demo
@@ -13,28 +17,18 @@ import javax.persistence.Column;
  * ----------------- ----------------- -----------------
  */
 
+@EqualsAndHashCode(callSuper = true)
+@Table(name = "tb_user_tools_category")
 @Data
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserToolsCategoryEntity extends BaseEntity{
 
-  @Column(name="title")
-  private String title;
+  @Column(name="user_id")
+  private String userId;
 
-  @Column(name="url")
-  private String url;
+  @Column(name="name")
+  private String name;
 
-  @Column(name="img")
-  private String img;
-
-  @Column(name="version")
-  private String content;
-
-  public UserToolsCategoryEntity(String title, String url, String img, String content) {
-    this.title = title;
-    this.url = url;
-    this.img = img;
-    this.content = content;
-  }
-
-  public UserToolsCategoryEntity() {
-  }
 }

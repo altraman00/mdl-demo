@@ -44,10 +44,10 @@ public class BaseEntity {
   @Column(name="modify_dt",updatable = false,columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间' ")
   private Timestamp modifyDt = new Timestamp(System.currentTimeMillis());
 
-  @Column(name="version",columnDefinition = "VARCHAR(100) COMMENT '版本' ")
+  @Column(name="version")
   private String version = "0";
 
-  @Column(name="sort_no",columnDefinition = "int(11) default 1 COMMENT '排序号' ")
+  @Column(name="sort_no")
   protected Integer sortNo = 1;
 
 }

@@ -1,8 +1,12 @@
 package com.mdl.home.entity;
 
-import lombok.Data;
-
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * @Project : mdl-demo
@@ -13,7 +17,12 @@ import javax.persistence.Column;
  * ----------------- ----------------- -----------------
  */
 
+@EqualsAndHashCode(callSuper = true)
+@Table(name = "tb_user_tools_category_site")
 @Data
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserToolsCategorySiteEntity extends BaseEntity{
 
   @Column(name="user_id")
@@ -34,13 +43,4 @@ public class UserToolsCategorySiteEntity extends BaseEntity{
   @Column(name="intro")
   private String intro;
 
-  public UserToolsCategorySiteEntity(String title, String url, String img, String intro) {
-    this.title = title;
-    this.url = url;
-    this.img = img;
-    this.intro = intro;
-  }
-
-  public UserToolsCategorySiteEntity() {
-  }
 }
