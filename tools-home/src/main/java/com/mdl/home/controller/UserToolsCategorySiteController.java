@@ -20,8 +20,9 @@ public class UserToolsCategorySiteController {
 
   @RequestMapping("/site/{username}")
   public String home(Model model
-      , @RequestParam(value = "username", required = false, defaultValue = "admin") String userId) {
-    Map<String, List<ToolsSiteVO>> siteList = siteService.findByUsername(userId);
+      , @RequestParam(value = "username", required = false, defaultValue = "admin") String username) {
+    Map<String, List<ToolsSiteVO>> categorySiteList = siteService.findByUsername(username);
+    model.addAttribute("categorySiteList", categorySiteList);
     return "tools_site";
   }
 
