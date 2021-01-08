@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserToolsCategorySiteRepository extends JpaRepository<UserToolsCategorySiteEntity, String> {
 
-    List<UserToolsCategorySiteEntity> findAllByUserId(String userId);
+    List<UserToolsCategorySiteEntity> findAllByUserName(String username);
 
 }

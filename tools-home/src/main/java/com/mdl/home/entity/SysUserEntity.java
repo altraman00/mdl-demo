@@ -18,35 +18,20 @@ import lombok.NoArgsConstructor;
  */
 
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "tb_user_tools_category_site")
+@Table(name = "tb_user_tools_category")
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserToolsCategorySiteEntity extends BaseEntity{
+public class SysUserEntity extends BaseEntity{
 
   @Column(name="user_id")
   private String userId;
 
-  @Column(name="userName")
+  @Column(name="user_name")
   private String userName;
 
-  @Column(name="category_id")
-  private String categoryId;
-
-  @Column(name="category_name")
-  private String categoryName;
-
-  @Column(name="title")
-  private String title;
-
-  @Column(name="url")
-  private String url;
-
-  @Column(name="img")
-  private String img;
-
-  @Column(name="intro")
-  private String intro;
+  @Column(name="open_id")
+  private String openId;
 
 }

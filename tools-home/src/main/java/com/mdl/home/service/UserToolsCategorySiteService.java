@@ -1,11 +1,11 @@
 package com.mdl.home.service;
 
-import com.mdl.home.entity.UserToolsCategorySiteEntity;
-
+import com.mdl.home.vo.ToolsSiteVO;
 import java.util.List;
+import java.util.Map;
 
 public interface UserToolsCategorySiteService {
 
-    List<UserToolsCategorySiteEntity> findByUserId(String userId);
+    Map<String, List<ToolsSiteVO>> findByUsername(String userName);
 
 }

@@ -28,6 +28,9 @@ public class UserToolsCategoryEntity extends BaseEntity{
   @Column(name="user_id")
   private String userId;
 
+  @Column(name="user_name")
+  private String userName;
+
   @Column(name="name")
   private String name;
 
