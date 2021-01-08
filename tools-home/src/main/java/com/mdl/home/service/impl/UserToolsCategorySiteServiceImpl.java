@@ -16,22 +16,35 @@ public class UserToolsCategorySiteServiceImpl implements UserToolsCategorySiteSe
   @Autowired
   private UserToolsCategorySiteRepository siteRepository;
 
+  private static ToolsSiteVO apply(UserToolsCategorySiteEntity t) {
+    ToolsSiteVO toolsSiteVO = new ToolsSiteVO();
+    toolsSiteVO.setImg(t.getImg());
+    toolsSiteVO.setUrl(t.getUrl());
+    toolsSiteVO.setIntro(t.getIntro());
+    toolsSiteVO.setTitle(t.getTitle());
+    toolsSiteVO.setIntro(t.getIntro());
+    toolsSiteVO.setUserName(t.getUserName());
+    toolsSiteVO.setCategoryName(t.getCategoryName());
+    return toolsSiteVO;
+  }
+
   @Override
   public Map<String, List<ToolsSiteVO>> findByUsername(String userName) {
     List<UserToolsCategorySiteEntity> siteList = siteRepository
         .findAllByUserName(userName);
     Map<String, List<ToolsSiteVO>> collect = siteList.parallelStream().map(t -> {
-      ToolsSiteVO toolsSiteVO = new ToolsSiteVO();
-      toolsSiteVO.setImg(t.getImg());
-      toolsSiteVO.setUrl(t.getUrl());
-      toolsSiteVO.setIntro(t.getIntro());
-      toolsSiteVO.setTitle(t.getTitle());
-      toolsSiteVO.setIntro(t.getIntro());
-      toolsSiteVO.setUserName(t.getUserName());
-      toolsSiteVO.setCategoryName(t.getCategoryName());
+      ToolsSiteVO toolsSiteVO = apply(t);
       return toolsSiteVO;
     }).collect(Collectors.toList()).stream()
         .collect(Collectors.groupingBy(ToolsSiteVO::getCategoryName));
+    return collect;
+  }
+
+  @Override
+  public List<ToolsSiteVO> findAll() {
+    List<UserToolsCategorySiteEntity> all = siteRepository.findAll();
+    List<ToolsSiteVO> collect = all.stream().map(UserToolsCategorySiteServiceImpl::apply)
+        .collect(Collectors.toList());
     return collect;
   }
 

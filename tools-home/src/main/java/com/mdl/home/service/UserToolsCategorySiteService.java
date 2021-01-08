@@ -8,4 +8,6 @@ public interface UserToolsCategorySiteService {
 
     Map<String, List<ToolsSiteVO>> findByUsername(String userName);
 
+    List<ToolsSiteVO> findAll();
+
 }

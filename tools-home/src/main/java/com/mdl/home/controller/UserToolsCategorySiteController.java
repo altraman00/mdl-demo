@@ -28,4 +28,11 @@ public class UserToolsCategorySiteController {
     return "tools_site";
   }
 
+  @RequestMapping("/site/all")
+  public String allSite(Model model) {
+    List<ToolsSiteVO> all = siteService.findAll();
+    model.addAttribute("allSiteList", all);
+    return "allsites";
+  }
+
 }

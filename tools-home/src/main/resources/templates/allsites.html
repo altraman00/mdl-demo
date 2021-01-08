@@ -23,14 +23,13 @@
         <nav id="nav" class="nav">
             <ul>
                 <li>
-                    <!--<a target="_blank" href="javascript:void(0);" data-for="community">首页</a>-->
-                    <a href="#" style="cursor:hand">首页</a>
+                    <a target="_blank" href="#" style="cursor:hand">首页</a>
                 </li>
                 <li>
                     <a target="_blank" href="#" style="cursor:hand">登录</a>
                 </li>
                 <li>
-                    <a target="_blank" href="/home/site/all" style="cursor:hand">全网</a>
+                    <a target="_blank" href="#" style="cursor:hand">全网</a>
                 </li>
                 <li>
                     <a target="_blank" href="#" style="cursor:hand">留言</a>
@@ -44,11 +43,13 @@
     <div class="container">
         <div id="main-content" class="main-content">
 
-            <div class="main-item" data-id="community" th:each="categorySiteItem:${categorySiteList}">
-                <div class="caption"><img class="icon icon-nav" th:src="@{/static/category_icon.png}"><a th:text="${categorySiteItem.getKey()}"></a></div>
+            <div class="main-item" data-id="tool">
+                <div class="caption"><i class="icon icon-nav"></i>
+                    工具
+                </div>
                 <div class="content">
                     <ul class="list clearfix">
-                        <li th:each="siteItem:${categorySiteItem.getValue()}">
+                        <li th:each="siteItem:${allSiteList}">
                             <a target="_blank" th:href="@{${siteItem.url}}">
                                 <div class="title"><img th:src="@{${siteItem.img}}" alt="" th:text="${siteItem.title}"></div>
                                 <div class="desc" th:text="${siteItem.intro}"></div>
