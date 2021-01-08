@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>让一切变得有趣</title>
+  <link rel="icon" type="image/png" th:href="@{/static/img/t.png}"/>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <meta name="description" content="一个开放的工具收藏导航网站，主要包含著名的博客、常用工具、公众号、社区论坛等。"/>
+  <meta name="keywords" content="技术, 博客, 工具，技术人员，学生，导航，技术公号"/>
+  <link rel="stylesheet" th:href="@{/static/css/style.css}">
+</head>
+<script type="text/javascript" th:src="@{/static/js/jquery-3.5.1.min.js}"></script>
+<body>
+
+<header id="header">
+  <div class="container">
+    <h2 class="logo">
+      <a target="_blank" href="#">
+        <img th:src="@{/static/tools_logo.png}" alt="">
+      </a>
+    </h2>
+    <nav id="nav" class="nav">
+      <ul>
+        <ul>
+          <li>
+            <!--<a target="_blank" href="javascript:void(0);" data-for="community">首页</a>-->
+            <a href="#" style="cursor:hand">首页</a>
+          </li>
+          <li>
+            <a target="_blank" href="#" style="cursor:hand">登录</a>
+          </li>
+          <li>
+            <a target="_blank" href="/home/site/all" style="cursor:hand">全网</a>
+          </li>
+          <li>
+            <a target="_blank" href="/home/site/guest" style="cursor:hand">留言</a>
+          </li>
+        </ul>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-main">
+  <div class="container">
+    <div id="main-content" class="main-content">
+
+      <div class="main-item" data-id="tool">
+        <div class="caption"><i class="icon icon-nav"></i>全网收藏</div>
+        <div class="content">
+
+
+          <h1 align="center">收藏留言板</h1>
+          <h6 align="center">--让收藏没有遗忘</h6>
+          <div class='main'>
+            <!-- BOF 发表留言 -->
+            <div class='add'>
+              <textarea class='content' cols='100%' rows='25'></textarea><br/>
+              <input class='btn' type='submit' value="提交"/>
+            </div>
+            <!-- EOF 发表留言 -->
+          </div>
+
+          <div class="main-item" data-id="tool">
+            <div class="caption"><img class="icon icon-nav" src="../static/img/category_icon.png">
+              推荐
+            </div>
+            <div class="content">
+              <ul class="list clearfix">
+
+                <li>
+                  <a target="_blank" href="http://tool.oschina.net/">
+                    <div class="title">
+                      <img src="../static/img/logo_oschina.gif" alt="">在线工具
+                    </div>
+                    <div class="desc"> 开源中国在线工具<</div>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://cloudconvert.com/">
+                    <div class="title">
+                      <img src="../static/img/cloudconvert.png" alt="">CloudConvert
+                    </div>
+                    <div class="desc">在线转化压缩包、字体、图片、视频、电子书</div>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://www.ilovepdf.com/zh_cn">
+                    <div class="title">
+                      <img src="../static/img/ilovepdf.svg" alt="">iLovePDF
+                    </div>
+                    <div class="desc">为PDF爱好者提供的PDF文件在线转换工具</div>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://convertio.co/zh">
+                    <div class="title">
+                      <img src="../static/img/convertio.png" alt="">Convertio
+                    </div>
+                    <div class="desc">文件转换器</div>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://tool.lu">
+                    <div class="title">
+                      <img src="../static/img/tool.png" alt="">tool.lu
+                    </div>
+                    <div class="desc">程序员的工具箱</div>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="http://md.phodal.com/">
+                    <div class="title">
+                      <img src="" alt="">Markdown
+                    </div>
+                    <div class="desc">Markdown微信公号编辑器</div>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="http://www.bejson.com/">
+                    <div class="title">
+                      <img src="" alt="">Be JSON
+                    </div>
+                    <div class="desc">在线JSON校验格式化工具</div>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="http://code2img.75team.com">
+                    <div class="title">
+                      <img src="" alt="">code2img
+                    </div>
+                    <div class="desc">代码片段转化成图片</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="copyright">Copyright © 2021</div>
+  </div>
+</footer>
+
+
+<style type="text/css">
+  /* 定义主div，宽度为800像素，居中显示 */
+  .main {
+    width: 800px;
+    margin: 0px auto;
+  }
+
+  /* 定义发表留言区域 */
+  .add {
+    overflow: hidden; /* 清除浮动带来的影响 */
+  }
+
+  .add .content {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .add .btn {
+    float: right;
+    width: 50px;
+    height: 30px;
+  }
+</style>
+
+</body>
+</html>

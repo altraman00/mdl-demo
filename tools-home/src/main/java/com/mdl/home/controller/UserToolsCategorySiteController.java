@@ -35,4 +35,9 @@ public class UserToolsCategorySiteController {
     return "allsites";
   }
 
+  @RequestMapping("/site/guest")
+  public String guest(Model model) {
+    return "guestbook";
+  }
+
 }
