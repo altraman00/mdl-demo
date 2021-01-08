@@ -8,8 +8,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @RequestMapping("/home")
 @Controller
@@ -20,7 +21,8 @@ public class UserToolsCategorySiteController {
 
   @RequestMapping("/site/{username}")
   public String home(Model model
-      , @RequestParam(value = "username", required = false, defaultValue = "admin") String username) {
+      , @PathVariable(value = "username",required = false) String username) {
+    username = StringUtils.isEmpty(username) ? "admin" : username;
     Map<String, List<ToolsSiteVO>> categorySiteList = siteService.findByUsername(username);
     model.addAttribute("categorySiteList", categorySiteList);
     return "tools_site";
