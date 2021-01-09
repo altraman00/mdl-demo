@@ -10,4 +10,6 @@ public interface UserToolsCategorySiteRepository extends JpaRepository<UserTools
 
     List<UserToolsCategorySiteEntity> findAllByUserName(String username);
 
+    List<UserToolsCategorySiteEntity> findAllByRecommend(boolean recommend);
+
 }

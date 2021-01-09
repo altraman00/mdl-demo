@@ -10,4 +10,6 @@ public interface UserToolsCategorySiteService {
 
     List<ToolsSiteVO> findAll();
 
+    List<ToolsSiteVO> recommendList();
+
 }

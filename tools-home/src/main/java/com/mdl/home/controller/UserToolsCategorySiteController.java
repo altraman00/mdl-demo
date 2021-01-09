@@ -37,7 +37,9 @@ public class UserToolsCategorySiteController {
 
   @RequestMapping("/site/guest")
   public String guest(Model model) {
-    return "guestbook";
+    List<ToolsSiteVO> recommendList = siteService.recommendList();
+    model.addAttribute("recommendList", recommendList);
+    return "guest_book";
   }
 
 }

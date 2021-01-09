@@ -28,6 +28,9 @@ public class UserToolsCategorySiteServiceImpl implements UserToolsCategorySiteSe
     return toolsSiteVO;
   }
 
+  /**
+   * 主页列表
+   */
   @Override
   public Map<String, List<ToolsSiteVO>> findByUsername(String userName) {
     List<UserToolsCategorySiteEntity> siteList = siteRepository
@@ -40,10 +43,24 @@ public class UserToolsCategorySiteServiceImpl implements UserToolsCategorySiteSe
     return collect;
   }
 
+  /**
+   * 全网列表
+   */
   @Override
   public List<ToolsSiteVO> findAll() {
     List<UserToolsCategorySiteEntity> all = siteRepository.findAll();
     List<ToolsSiteVO> collect = all.stream().map(UserToolsCategorySiteServiceImpl::apply)
+        .collect(Collectors.toList());
+    return collect;
+  }
+
+  /**
+   * 推荐列表
+   */
+  @Override
+  public List<ToolsSiteVO> recommendList() {
+    List<UserToolsCategorySiteEntity> recommendList = siteRepository.findAllByRecommend(true);
+    List<ToolsSiteVO> collect = recommendList.stream().map(UserToolsCategorySiteServiceImpl::apply)
         .collect(Collectors.toList());
     return collect;
   }

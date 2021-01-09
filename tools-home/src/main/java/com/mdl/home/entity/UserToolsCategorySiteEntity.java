@@ -49,4 +49,7 @@ public class UserToolsCategorySiteEntity extends BaseEntity{
   @Column(name="intro")
   private String intro;
 
+  @Column(name="recommend")
+  private boolean recommend;
+
 }

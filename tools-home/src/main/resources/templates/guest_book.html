@@ -20,6 +20,7 @@
         <img th:src="@{/static/tools_logo.png}" alt="">
       </a>
     </h2>
+
     <nav id="nav" class="nav">
       <ul>
         <ul>
@@ -50,89 +51,31 @@
         <div class="caption"><i class="icon icon-nav"></i>全网收藏</div>
         <div class="content">
 
-
           <h1 align="center">收藏留言板</h1>
           <h6 align="center">--让收藏没有遗忘</h6>
           <div class='main'>
             <!-- BOF 发表留言 -->
             <div class='add'>
-              <textarea class='content' cols='100%' rows='25'></textarea><br/>
+              <textarea class='content' cols='100%' rows='20'></textarea><br/>
               <input class='btn' type='submit' value="提交"/>
             </div>
             <!-- EOF 发表留言 -->
           </div>
 
           <div class="main-item" data-id="tool">
-            <div class="caption"><img class="icon icon-nav" src="../static/img/category_icon.png">
+            <div class="caption"><img class="icon icon-nav" th:src="@{/static/category_icon.png}">
               推荐
             </div>
             <div class="content">
               <ul class="list clearfix">
 
-                <li>
-                  <a target="_blank" href="http://tool.oschina.net/">
-                    <div class="title">
-                      <img src="../static/img/logo_oschina.gif" alt="">在线工具
-                    </div>
-                    <div class="desc"> 开源中国在线工具<</div>
+                <li th:each="siteItem:${recommendList}">
+                  <a target="_blank" th:href="@{${siteItem.url}}">
+                    <div class="title"><img th:src="@{${siteItem.img}}" alt="" th:text="${siteItem.title}"></div>
+                    <div class="desc" th:text="${siteItem.intro}"></div>
                   </a>
                 </li>
-                <li>
-                  <a target="_blank" href="https://cloudconvert.com/">
-                    <div class="title">
-                      <img src="../static/img/cloudconvert.png" alt="">CloudConvert
-                    </div>
-                    <div class="desc">在线转化压缩包、字体、图片、视频、电子书</div>
-                  </a>
-                </li>
-                <li>
-                  <a target="_blank" href="https://www.ilovepdf.com/zh_cn">
-                    <div class="title">
-                      <img src="../static/img/ilovepdf.svg" alt="">iLovePDF
-                    </div>
-                    <div class="desc">为PDF爱好者提供的PDF文件在线转换工具</div>
-                  </a>
-                </li>
-                <li>
-                  <a target="_blank" href="https://convertio.co/zh">
-                    <div class="title">
-                      <img src="../static/img/convertio.png" alt="">Convertio
-                    </div>
-                    <div class="desc">文件转换器</div>
-                  </a>
-                </li>
-                <li>
-                  <a target="_blank" href="https://tool.lu">
-                    <div class="title">
-                      <img src="../static/img/tool.png" alt="">tool.lu
-                    </div>
-                    <div class="desc">程序员的工具箱</div>
-                  </a>
-                </li>
-                <li>
-                  <a target="_blank" href="http://md.phodal.com/">
-                    <div class="title">
-                      <img src="" alt="">Markdown
-                    </div>
-                    <div class="desc">Markdown微信公号编辑器</div>
-                  </a>
-                </li>
-                <li>
-                  <a target="_blank" href="http://www.bejson.com/">
-                    <div class="title">
-                      <img src="" alt="">Be JSON
-                    </div>
-                    <div class="desc">在线JSON校验格式化工具</div>
-                  </a>
-                </li>
-                <li>
-                  <a target="_blank" href="http://code2img.75team.com">
-                    <div class="title">
-                      <img src="" alt="">code2img
-                    </div>
-                    <div class="desc">代码片段转化成图片</div>
-                  </a>
-                </li>
+
               </ul>
             </div>
           </div>
