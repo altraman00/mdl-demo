@@ -7,7 +7,7 @@
 //
 ///**
 // * @Project : mobvoi-demo
-// * @Package Name : com.mdl.mobvoi.repository
+// * @Package Name : com.mdl.mdl.repository
 // * @Description : TODO
 // * @Author : knight
 // * @Create Date : 2020年08月24日 16:12

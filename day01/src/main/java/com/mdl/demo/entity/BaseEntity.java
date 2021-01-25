@@ -11,7 +11,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 /**
  * @Project : mobvoi-demo
- * @Package Name : com.mdl.mobvoi.entity
+ * @Package Name : com.mdl.mdl.entity
  * @Description : TODO
  * @Author : knight
  * @Create Date : 2020年08月24日 16:13

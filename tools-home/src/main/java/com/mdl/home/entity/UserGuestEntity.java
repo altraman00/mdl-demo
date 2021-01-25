@@ -18,17 +18,17 @@ import lombok.NoArgsConstructor;
  */
 
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "tb_user_tools_category")
+@Table(name = "tb_user_guest")
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class SysUserEntity extends BaseEntity{
+public class UserGuestEntity extends BaseEntity{
 
   @Column(name="user_name")
   private String userName;
 
-  @Column(name="open_id")
-  private String openId;
+  @Column(name="content")
+  private String content;
 
 }

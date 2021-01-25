@@ -105,15 +105,15 @@ public class UserController {
   /**
    * IOS国内支付包名验证
    **/
-  private static final String IOS_HOME_PACKAGE = "com.mobvoi.One";
+  private static final String IOS_HOME_PACKAGE = "com.mdl.One";
   /**
    * IOS海外支付包名验证
    **/
-  private static final String IOS_OVERSEAS_PACKAGE = "com.mobvoi.companion.aw";
+  private static final String IOS_OVERSEAS_PACKAGE = "com.mdl.companion.aw";
 
   public static void main(String[] args) {
-//    String packageaName = "com.mobvoi.One.v2.202001006";
-    String packageaName = "com.mobvoi.companion.aw.202001006";
+//    String packageaName = "com.mdl.One.v2.202001006";
+    String packageaName = "com.mdl.companion.aw.202001006";
     String s = parseProductId(packageaName);
     System.out.println("productId：" + s);
 
