@@ -28,12 +28,6 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
-    <!--    <dependency>-->
-    <!--      <groupId>org.mybatis.spring.boot</groupId>-->
-    <!--      <artifactId>mybatis-spring-boot-starter</artifactId>-->
-    <!--      <version>2.1.4</version>-->
-    <!--    </dependency>-->
-
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
@@ -140,6 +134,12 @@
       <groupId>io.springfox</groupId>
       <artifactId>springfox-swagger2</artifactId>
       <version>2.4.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
     </dependency>
 
   </dependencies>

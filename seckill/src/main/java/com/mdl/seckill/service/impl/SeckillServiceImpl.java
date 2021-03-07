@@ -23,10 +23,16 @@ public class SeckillServiceImpl extends ServiceImpl<SeckillMapper, SeckillEntity
   private SeckillMapper seckillMapper;
 
   @Override
-  public SeckillEntity queryById(long seckillId) {
+  public SeckillEntity queryOne(long seckillId) {
     QueryWrapper<SeckillEntity> wrapper = new QueryWrapper<>();
     wrapper.eq("seckill_id", seckillId);
     SeckillEntity seckillEntity = seckillMapper.selectOne(wrapper);
     return seckillEntity;
   }
+
+  @Override
+  public SeckillEntity queryBySeckillId(long seckillId) {
+    return seckillMapper.queryBySeckillId(seckillId);
+  }
+
 }

@@ -13,6 +13,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface SeckillService extends IService<SeckillEntity> {
 
-  SeckillEntity queryById(long seckillId);
+  SeckillEntity queryOne(long seckillId);
+
+  SeckillEntity queryBySeckillId(long seckillId);
 
 }

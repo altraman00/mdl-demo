@@ -1,8 +1,10 @@
 package com.mdl.seckill.dao;
 
-import com.mdl.seckill.entity.SeckillEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
+import com.mdl.seckill.entity.SeckillEntity;
+import java.util.Date;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -16,5 +18,22 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SeckillMapper extends BaseMapper<SeckillEntity> {
+
+  /**
+   * 减库存
+   *
+   * @return 如果影响行数>1，表示更新库存的记录行数
+   */
+  int reduceNumber(@Param("seckillId") long seckillId, @Param("killTime") Date killTime);
+
+  /**
+   * 根据id查询秒杀的商品信息
+   */
+  SeckillEntity queryBySeckillId(long seckillId);
+
+  /**
+   * 根据偏移量查询秒杀商品列表
+   */
+  List<SeckillEntity> queryAll(@Param("off") int off, @Param("limit") int limit);
 
 }

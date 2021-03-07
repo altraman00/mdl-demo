@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@MapperScan("com.mdl.seckill.dao")
 @EntityScan
+@MapperScan("com.mdl.seckill.dao")
 @ComponentScan(basePackages = {"com.mdl.seckill.*"})
 public class SeckillApplication {
 

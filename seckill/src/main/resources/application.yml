@@ -17,7 +17,3 @@ spring:
     table: flyway_schema_history
     baseline-on-migrate: true
     validate-on-migrate: false
-
-mybatis:
-  type-aliases-package: com.mdl.seckill.entity
-  mapperLocations: classpath:mappers/*.xml
