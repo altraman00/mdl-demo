@@ -1,7 +1,8 @@
 package com.mdl.seckill.dao;
 
-import com.mdl.seckill.entity.SuccessKilledEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.mdl.seckill.entity.SuccessKilledEntity;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -11,6 +12,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author xiekun
  * @since 2021-03-07
  */
+
+@Repository
 public interface SuccessKilledMapper extends BaseMapper<SuccessKilledEntity> {
 
   /**

@@ -23,11 +23,6 @@ public class SeckillController {
   @Autowired
   private SeckillService seckillService;
 
-  @GetMapping("/one")
-  public SeckillEntity queryByOne(long id) {
-    return seckillService.queryOne(id);
-  }
-
   @GetMapping("/by")
   public SeckillEntity queryBySeckillId(long id) {
     return seckillService.queryBySeckillId(id);
