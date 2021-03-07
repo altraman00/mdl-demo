@@ -14,7 +14,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 
 @Mapper
-public interface SeckillDao {
+public interface SeckillMapper {
 
   SeckillEntity queryById(String id);
 

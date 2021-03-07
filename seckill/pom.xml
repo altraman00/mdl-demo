@@ -14,8 +14,11 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>seckill</name>
   <description>shopping seckill</description>
+
   <properties>
     <java.version>1.8</java.version>
+    <fasterxml.jackson.version>2.9.4</fasterxml.jackson.version>
+    <flyway.version>5.2.1</flyway.version>
   </properties>
 
   <dependencies>
@@ -25,16 +28,27 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
-    <dependency>
-      <groupId>org.mybatis.spring.boot</groupId>
-      <artifactId>mybatis-spring-boot-starter</artifactId>
-      <version>2.1.4</version>
-    </dependency>
+    <!--    <dependency>-->
+    <!--      <groupId>org.mybatis.spring.boot</groupId>-->
+    <!--      <artifactId>mybatis-spring-boot-starter</artifactId>-->
+    <!--      <version>2.1.4</version>-->
+    <!--    </dependency>-->
 
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid-spring-boot-starter</artifactId>
+      <version>1.1.22</version>
     </dependency>
 
     <dependency>
@@ -59,6 +73,62 @@
       <artifactId>logback-core</artifactId>
     </dependency>
 
+
+    <!-- mybatis-plus start -->
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-boot-starter</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-generator</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-extension</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+    <!-- mybatis-plus end -->
+
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper-spring-boot-starter</artifactId>
+      <version>1.2.3</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- mybatis-plus generator start -->
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+    </dependency>
+    <!--mybatis-plus generator end-->
+
+    <!-- flyway -->
+    <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-core</artifactId>
+      <version>${flyway.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>cn.hutool</groupId>
+      <artifactId>hutool-all</artifactId>
+      <version>4.1.14</version>
+    </dependency>
 
   </dependencies>
 

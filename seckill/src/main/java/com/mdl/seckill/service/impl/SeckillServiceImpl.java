@@ -1,6 +1,6 @@
 package com.mdl.seckill.service.impl;
 
-import com.mdl.seckill.dao.SeckillDao;
+import com.mdl.seckill.dao.SeckillMapper;
 import com.mdl.seckill.entity.SeckillEntity;
 import com.mdl.seckill.service.SeckillService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +19,10 @@ import org.springframework.stereotype.Service;
 public class SeckillServiceImpl implements SeckillService {
 
   @Autowired
-  private SeckillDao seckillDao;
+  private SeckillMapper seckillMapper;
 
   @Override
   public SeckillEntity queryById(String id) {
-    return seckillDao.queryById(id);
+    return seckillMapper.queryById(id);
   }
 }
