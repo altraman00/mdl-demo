@@ -51,8 +51,8 @@ public class CodeGenerator {
   /**
    * 数据库配置
    */
-  public final static String db_url = "jdbc:mysql://127.0.0.1:3306/motion-health-statistics?useUnicode=true&useSSL=false&characterEncoding=utf8";
-  public final static String db_driverName = "com.mysql.jdbc.Driver";
+  public final static String db_url = "jdbc:mysql://127.0.0.1:3306/alkb-cloud?useUnicode=true&useSSL=false&characterEncoding=utf8";
+  public final static String db_driverName = "com.mysql.cj.jdbc.Driver";
   public final static String db_username = "root";
   public final static String db_password = "123456";
 
