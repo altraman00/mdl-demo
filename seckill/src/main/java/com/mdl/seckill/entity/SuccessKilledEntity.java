@@ -1,13 +1,13 @@
 package com.mdl.seckill.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.Serializable;
+import java.util.Date;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -42,7 +42,7 @@ public class SuccessKilledEntity extends Model<SuccessKilledEntity> {
 
     @ApiModelProperty(value = "创建时间")
     @TableField("create_time")
-    private LocalDateTime createTime;
+    private Date createTime;
 
 
     @Override
